@@ -1,13 +1,18 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <com-header/>
     <router-view/>
   </div>
 </template>
 
 <script>
+import ComHeader from '@/components/ComHeader.vue'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    ComHeader
+  }
 }
 </script>
 
