@@ -4,7 +4,6 @@ import Router from 'vue-router'
 import TodayGoal from '@/views/TodayGoal.vue'
 import LongTermGoal from '@/views/LongTermGoal.vue'
 import PastDataList from '@/views/PastDataList.vue'
-// import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Router)
 
