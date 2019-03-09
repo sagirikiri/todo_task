@@ -1,0 +1,27 @@
+version: 2
+jobs:
+  deploy:
+    docker:
+      # specify the version you desire here
+      - image: devillex/docker-firebase:latest
+
+    steps:
+      - checkout
+      - run:
+          name: npm install
+          command: npm install --unsafe
+      - run:
+          name: build Vue
+          command: npm run build
+      - run:
+          name: deploy firebase
+          command: firebase deploy --token $FIREBASE_DEPLOY_KEY
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only: master
