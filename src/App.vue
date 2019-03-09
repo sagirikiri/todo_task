@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
   <div id="app">
     <com-header/>
@@ -7,11 +8,12 @@
 
 <script>
 import ComHeader from '@/components/ComHeader.vue'
-
+import InsertText from '@/components/InsertText.vue'
 export default {
   name: 'App',
   components: {
-    ComHeader
+    ComHeader,
+    InsertText
   }
 }
 </script>
