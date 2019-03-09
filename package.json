@@ -12,7 +12,6 @@
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js",
-    "deploy": "npx firebase deploy --only hosting --project \"$FIREBASE_PROJECT\" --token \"FIREBASE_TOKEN\""
   },
   "dependencies": {
     "vue": "^2.5.2",
