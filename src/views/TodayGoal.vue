@@ -6,6 +6,7 @@
 </template>
 <script>
 import InsertText from '@/components/InsertText.vue'
+
 export default {
   name: 'TodayGoal',
   components: {
