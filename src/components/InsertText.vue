@@ -1,13 +1,22 @@
 /* eslint-disable */
 <template>
-  <input type="text" name="">
+  <input type="text" class="input" :value="value" v-on="listeners" />
 </template>
+
 <script>
 export default{
   props: {
-    values: {
+    value: {
       types: String,
-      default: ' '
+      default: ''
+    }
+  },
+  computed: {
+    listeners () {
+      return {
+        ...this.$listeners,
+        input: event => this.$emit('input', event.target.value)
+      }
     }
   }
 }
