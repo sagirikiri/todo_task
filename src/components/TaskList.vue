@@ -1,17 +1,15 @@
 <template>
   <div>
-    <InsertText
-    v-model="newTaskText"
-    placeHolder="タスクを入力"
-    @keydown.enter="addTask"
-    />
+    <div>
+      <input type="text" class="input" :value="value"  />
+    </div>
     <ul v-if="tasks.length">
-      <TaskListItem
-        v-for="task in tasks"
-        :key="task.id"
-        :task="task"
-        @click="removeTask">
-      </TaskListItem>
+      <li>
+        {{ task.text }}
+        <button @click="$emit('removeTask, task.id')">
+          [削除]
+        </button>
+      </li>
     </ul>
     <p v-else>タスクを追加してください</p>
   </div>
@@ -25,7 +23,7 @@ let nextTaskId = 1
 
 export default {
   components: {
-    InsertText, TaskListItem
+    InsertText
   },
   data () {
     return {
