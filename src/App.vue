@@ -1,21 +1,18 @@
-/* eslint-disable */
 <template>
   <div id="app">
     <com-header/>
     <router-view/>
-    <TaskList />
   </div>
 </template>
 
 <script>
 import ComHeader from '@/components/ComHeader.vue'
-import InsertText from '@/components/InsertText.vue'
 import TaskList from '@/components/TaskList.vue'
 export default {
+
   name: 'App',
   components: {
     ComHeader,
-    InsertText,
     TaskList
   }
 }
