@@ -1,7 +1,7 @@
 <template>
   <div id="TodayGoal">
     <h1>Today Goalのページ</h1>
-    <TaskList />
+    <Task-List />
   </div>
 </template>
 <script>

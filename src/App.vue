@@ -7,13 +7,11 @@
 
 <script>
 import ComHeader from '@/components/ComHeader.vue'
-import TaskList from '@/components/TaskList.vue'
 export default {
 
   name: 'App',
   components: {
-    ComHeader,
-    TaskList
+    ComHeader
   }
 }
 </script>

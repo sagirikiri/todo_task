@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div Id= "ListTasks">
     <div>
       <input type="text" class="input" v-model="newTaskText" />
       <input type="date" name="" v-model="targetYmd" />
@@ -62,7 +62,6 @@ export default {
   },
   methods: {
     addTask (newTaskText, targetYmd) {
-      console.log(this)
       const trimmedText = this.newTaskText.trim()
       let deadline = this.targetYmd
       if (trimmedText) {
@@ -80,9 +79,7 @@ export default {
       }
     },
     removeTask (taskId) {
-      console.log(this)
-      removedPost = posts.filter(item => item.uid = taskId)
-      console.log(removedPost)
+      removedPost = this.posts.filter(item => item.uid = taskId)
       removedPost.isRemoved = true
     }
   }
