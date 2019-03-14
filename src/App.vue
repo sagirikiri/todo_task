@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <com-header/>
-    <router-view/>
+    <comHeader />
+    <router-view />
   </div>
 </template>
 
 <script>
 import ComHeader from '@/components/ComHeader.vue'
-export default {
 
+export default {
   name: 'App',
   components: {
     ComHeader

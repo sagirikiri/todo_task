@@ -25,7 +25,7 @@
           {{ post.status }}
         </td>
         <td>
-          <button v-on:click="removeTask(post.uid)">
+          <button v-on:click="removeTask(post.id)">
             [削除]
           </button>
         </td>
@@ -79,7 +79,14 @@ export default {
       }
     },
     removeTask (taskId) {
-      removedPost = this.posts.filter(item => item.uid = taskId)
+      console.log(taskId);
+      console.log(this.posts);
+      
+      var removedPost = this.posts.filter(function(item, index){
+        if (item.id == taskId) 
+          return true;
+      });
+
       removedPost.isRemoved = true
     }
   }
