@@ -14,7 +14,7 @@
           <th class="button">削除</th>  
       </tr>
       </thead>
-      <tr v-for = 'post in posts' >
+      <tr v-for = "(post, key) in posts" :key="post.value">
         <td>
           {{ post.content }}
         </td>
@@ -25,7 +25,7 @@
           {{ post.status }}
         </td>
         <td>
-          <button v-on:click="removeTask(post.id)">
+          <button v-on:click="removeTask(key)">
             [削除]
           </button>
         </td>
@@ -37,16 +37,13 @@
 <script>
 import firebase from '@/firebase/index.js'
 
-const FIREBASE = firebase.database()
-let posts = FIREBASE.ref('posts')
-let today = new Date()
-
 export default {
   components: {
 
   },
   data () {
     return {
+      database: null,
       posts: null,
       newTaskText: '',
       _createdAt: '',
@@ -56,16 +53,22 @@ export default {
     }
   },
   created () {
-    posts.on('value', (snapshot) => {
-       this.posts = snapshot.val()
-    })
+    this.database = firebase.database()
+    this.posts = this.database.ref('posts')
+    var self = this,
+        now = new Date(),
+        today = now.toLocaleDateString();
+
+    this.posts.on('value', function(snapshot) {
+      self.posts = snapshot.val(); // データに変化が起きたときに再取得する
+    });
   },
   methods: {
     addTask (newTaskText, targetYmd) {
       const trimmedText = this.newTaskText.trim()
       let deadline = this.targetYmd
       if (trimmedText) {
-        posts.push({
+        this.posts.push({
           _createdAt: today,
           _updatedAt: targetYmd,
           content: trimmedText,
@@ -78,16 +81,9 @@ export default {
         this.targetYmd = ''
       }
     },
-    removeTask (taskId) {
-      console.log(taskId);
-      console.log(this.posts);
-      
-      var removedPost = this.posts.filter(function(item, index){
-        if (item.id == taskId) 
-          return true;
-      });
-
-      removedPost.isRemoved = true
+    removeTask: function(key) {
+      console.log(key);
+      this.database.ref('posts').child(key).remove();
     }
   }
 }
