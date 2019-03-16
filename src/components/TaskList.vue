@@ -54,11 +54,9 @@ export default {
   created () {
      var self = this,
       now = new Date()
-
     this.database = firebase.database()
     this.posts = this.database.ref('posts')
     this.today = now.toLocaleDateString()
-
     this.posts.on('value', function (snapshot) {
       self.posts = snapshot.val() // データに変化が起きたときに再取得する
     })
@@ -72,7 +70,7 @@ export default {
           creationDate: this.today,
           updateDate: targetYmd,
           content: trimmedText,
-          status: appConst.TASK_STATUS_ONGOING,
+          status: appConst.TASK_STATUS_WAITING,
           targetYmd: deadline,
           isRemoved: false
         })
