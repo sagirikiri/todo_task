@@ -36,6 +36,7 @@
 
 <script>
 import firebase from '@/firebase/index.js'
+import {appConst} from '@/const.js'
 
 export default {
   components: {
@@ -72,7 +73,7 @@ export default {
           _createdAt: today,
           _updatedAt: targetYmd,
           content: trimmedText,
-          status: 'ongoing',
+          status: appConst.TASK_STATUS_ONGOING,
           targetYmd: deadline,
           isRemoved: false
         })
