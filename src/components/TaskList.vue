@@ -11,7 +11,7 @@
           <th class="id">タイトル</th>
           <th class="comment">締切</th>
           <th class="state">状態</th>
-          <th class="button">削除</th>  
+          <th class="button">削除</th>
       </tr>
       </thead>
       <tr v-for = "(post, key) in posts" :key="post.value">
@@ -55,13 +55,13 @@ export default {
   created () {
     this.database = firebase.database()
     this.posts = this.database.ref('posts')
-    var self = this,
-        now = new Date(),
-        today = now.toLocaleDateString();
+    let self = this
+    let now = new Date()
+    let today = now.toLocaleDateString()
 
-    this.posts.on('value', function(snapshot) {
-      self.posts = snapshot.val(); // データに変化が起きたときに再取得する
-    });
+    this.posts.on('value', snapshot => {
+      self.posts = snapshot.val() // データに変化が起きたときに再取得する
+    })
   },
   methods: {
     addTask (newTaskText, targetYmd) {
@@ -81,9 +81,9 @@ export default {
         this.targetYmd = ''
       }
     },
-    removeTask: function(key) {
-      console.log(key);
-      this.database.ref('posts').child(key).remove();
+    removeTask: key => {
+      console.log(key)
+      this.database.ref('posts').child(key).remove()
     }
   }
 }
