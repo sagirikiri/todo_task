@@ -6,5 +6,11 @@ export const appConst = {
   /** タスクステータス 完了 */
   TASK_STATUS_DONE: 'done',
   /** タスクステータス 完了 */
-  TASK_STATUS_DELETED: 'deleted'
+  TASK_STATUS_DELETED: 'deleted',
+  /** 日付フォーマット プレーン */
+  YMDFORMAT_YYYYMMDD_PLAIN: 'yyyyMMdd',
+  /** 日付フォーマット ハイフン付き */
+  YMDFORMAT_YYYYMMDD_HYPHEN: 'yyyy-MM-dd',
+  /** 日付フォーマット スラッシュ付き */
+  YMDFORMAT_YYYYMMDD_SLASH: 'yyyy/MM/dd'
 }
