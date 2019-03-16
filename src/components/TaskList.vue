@@ -1,41 +1,36 @@
 <template>
-  <div Id= "taskList">
+  <v-app Id= "taskList">
     <div>
-      <input type="text" name = "" class="inputTitle" v-model="newTaskText" />
-      <input type="date" name = "締切" v-model="targetYmd" />
-      <button v-on:click="addTask(newTaskText,targetYmd)">登録!</button>
+      <v-btn v-on:click="callComponent(editTask)">
+        登録!
+      </v-btn>
     </div>
-    <table>
-      <thead>
-        <tr>
-            <th class="id">タイトル</th>
-            <th class="comment">締切</th>
-            <th class="state">状態</th>
-            <th class="state">削除</th>
-        </tr>
-      </thead>
-      <tr v-for = "(post, key) in posts" :key="post.value">
-        <td>
-          {{ post.content }}
-        </td>
-        <td>
-          {{ post.targetYmd }}
-        </td>
-        <td>
-          {{ post.status }}
-        </td>
-        <td>
-          <button v-on:click="removeTask(post, key)">
-            [削除]
-          </button>
-        </td>
-      </tr>
-    </table>
-  </div>
+    <v-expansion-panel>
+      <v-expansion-panel-content
+        v-for = "(post, key) in posts"
+         :key = "post.value"
+      >
+        <template v-slot:header>
+          <div>{{ post.content }}</div>
+        </template>
+        <v-card>
+          <v-card-text>
+            ここにはいるようなのほしいな。
+          </v-card-text>
+          <v-card-actions>
+            <span class="targetYmd"> 締切日: {{post.targetYmd}} </span>
+            <v-btn color="success" v-on:click="removeTask(post, key)" >削除</v-btn>
+            <v-btn color="Warning" v-on:click="updateTask(post,key)">更新</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-expansion-panel-content>
+    </v-expansion-panel>
+  </v-app>
 </template>
 
 <script>
 import firebase from '@/firebase/index.js'
+import editTask from '@/components/editTask.vue'
 
 export default {
   data () {
@@ -51,7 +46,7 @@ export default {
     }
   },
   created () {
-     var self = this,
+    var self = this,
       now = new Date()
 
     this.database = firebase.database()
