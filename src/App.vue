@@ -1,19 +1,17 @@
-/* eslint-disable */
 <template>
   <div id="app">
-    <com-header/>
-    <router-view/>
+    <comHeader />
+    <router-view />
   </div>
 </template>
 
 <script>
 import ComHeader from '@/components/ComHeader.vue'
-import InsertText from '@/components/InsertText.vue'
+
 export default {
   name: 'App',
   components: {
-    ComHeader,
-    InsertText
+    ComHeader
   }
 }
 </script>

@@ -1,16 +1,17 @@
 <template>
   <div id="TodayGoal">
     <h1>Today Goalのページ</h1>
-    <insertText />
+    <TaskList />
   </div>
 </template>
 <script>
-import InsertText from '@/components/InsertText.vue'
+
+import TaskList from '@/components/TaskList.vue'
 
 export default {
   name: 'TodayGoal',
   components: {
-    InsertText
+    TaskList
   }
 }
 </script>
