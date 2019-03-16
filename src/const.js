@@ -1,4 +1,4 @@
-export const appConst = {
+export default {
   /** タスクステータス 未着手 */
   TASK_STATUS_WAITING: 'waiting',
   /** タスクステータス 実施中 */

@@ -1,6 +1,6 @@
 import appConst from '@/const.js'
 
-export const util = {
+export default {
   /**
    * 指定されたフォーマットの本日日付を返却する。
    * @param {string} format 日付フォーマット
@@ -37,7 +37,7 @@ export const util = {
 
     // 桁数調整
     paddedYear = this.leftZeroPadding(date.getFullYear().toString(), 4)
-    paddedMonth = this.leftZeroPadding(date.getMonth().toString(), 2)
+    paddedMonth = this.leftZeroPadding((date.getMonth() + 1).toString(), 2) // jsのMonthは0が1月のため調整
     paddedDay = this.leftZeroPadding(date.getDate().toString(), 2)
 
     // 指定されたフォーマットで分岐
