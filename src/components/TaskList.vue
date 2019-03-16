@@ -11,7 +11,7 @@
             <th class="id">タイトル</th>
             <th class="comment">締切</th>
             <th class="state">状態</th>
-            <th class="state">締切</th>
+            <th class="state">削除</th>
         </tr>
       </thead>
       <tr v-for = "(post, key) in posts" :key="post.value">
