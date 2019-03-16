@@ -15,7 +15,7 @@ export default {
 
   /**
    * 指定されたフォーマットの日付を返却する。
-   * @param {Date||string} date 日付
+   * @param {Date|string} date 日付
    * @param {string} format 日付フォーマット
    *    指定できるフォーマットは'yyyyMMdd', 'yyyy-MM-dd', 'yyyy/MM/dd'
    *    const経由で指定すること。
