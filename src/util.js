@@ -8,9 +8,8 @@ export default {
    *    const経由で指定すること。
    * @returns {string} 指定フォーマットの本日日付文字列
    */
-  getTodayYmd: function (format) {
-    const todayYmd = new Date()
-    return this.getYmd(todayYmd, format)
+  getTodayYmd (format) {
+    return this.getYmd(new Date(), format)
   },
 
   /**
@@ -21,7 +20,7 @@ export default {
    *    const経由で指定すること。
    * @returns {string} 指定フォーマットの日付文字列
    */
-  getYmd: function (date, format) {
+  getYmd (date, format) {
     let paddedYear, paddedMonth, paddedDay
 
     // dateがstringだった場合の処理
@@ -58,11 +57,11 @@ export default {
 
   /**
    * 対象文字列を指定された桁数になるまで左詰めでゼロパディングする。
-   * @param {string} str パディング対象文字列
-   * @param {Number} digit 桁数
+   * @param {?string} str パディング対象文字列
+   * @param {number|string} digit 桁数
    * @returns {string} ゼロパディング済み文字列
    */
-  leftZeroPadding: function (str, digit) {
-    return str.padStart(digit, '0')
+  leftZeroPadding (str, digit) {
+    return str === null ? null : str.padStart(digit, '0')
   }
 }
