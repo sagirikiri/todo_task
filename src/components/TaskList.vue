@@ -30,7 +30,6 @@
 
 <script>
 import firebase from '@/firebase/index.js'
-import editTask from '@/components/editTask.vue'
 import appConst from '@/const.js'
 import util from '@/util.js'
 
