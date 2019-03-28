@@ -1,10 +1,5 @@
 <template>
   <v-app Id= "taskList">
-    <div>
-      <v-btn v-on:click="callComponent(editTask)">
-        登録!
-      </v-btn>
-    </div>
     <v-expansion-panel>
       <v-expansion-panel-content
         v-for = "(post, key) in posts"
